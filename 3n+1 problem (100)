@@ -1,0 +1,85 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+
+public class Problem_100a {
+
+	/**
+	 * @param args
+	 * This is the 3n+1 problem -- 
+	 */
+
+	// test cycle
+	int cycle (int testInput ) {
+		int cycleCounter = 1;
+
+		//System.out.println(testInput);
+
+
+		while (testInput!=1){
+			if (testInput%2 == 0 )
+				testInput /= 2 ; 
+			else
+				testInput = (testInput * 3) + 1;
+
+			cycleCounter ++;
+		}
+
+		return cycleCounter;
+
+	}
+
+	// get input and process	
+	void process(){
+		
+		int first= 0; int second = 0; int maxCycle = 0; 
+		String line = "";
+		
+		StringTokenizer tokenizer = null;
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+			//while (((line = br.readLine()) != null)) {
+			try {
+				while (true &&((line = br.readLine()) != null) ){
+					
+						
+						tokenizer = new StringTokenizer(line);
+						first = Integer.parseInt(tokenizer.nextToken());
+						second = Integer.parseInt(tokenizer.nextToken());
+						
+						//get maxCycle for numbers between and including numbers provided
+						for (int i = first; i <= second; i++){
+							//here check for greatest cycle
+							if (maxCycle < cycle(i)){
+								maxCycle = cycle(i);
+							}
+						}
+						
+						System.out.println(first + " " + second + " " + maxCycle);
+						}
+			} catch (NumberFormatException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+				
+			
+				
+		
+		}
+
+
+
+
+	public static void main(String[] args) {
+		Problem_100a mySolution = new Problem_100a();
+		mySolution.process();
+		
+
+	}
+
+}
