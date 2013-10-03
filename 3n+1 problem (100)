@@ -52,7 +52,7 @@ public class Problem_100a {
 						// first>=second or first<second
 						//TODO what if they are equal
 						
-						if (first == second){
+						if (first != second){
 						
 						if (first > second){
 							sInput = second;
