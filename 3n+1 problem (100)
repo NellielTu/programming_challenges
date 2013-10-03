@@ -50,12 +50,15 @@ public class Problem_100a {
 						second = Integer.parseInt(tokenizer.nextToken());
 						
 						// first>=second or first<second
+						//TODO what if they are equal
 						
-						if (first >= second){
+						if (first == second){
+						
+						if (first > second){
 							sInput = second;
 							lInput = first;
 						}
-						else {
+						else if(first < second)  {
 							lInput = second;
 							sInput = first;
 						}
@@ -67,6 +70,10 @@ public class Problem_100a {
 							if (maxCycle < cycle(i)){
 								maxCycle = cycle(i);
 							}
+						}
+						}
+						else {
+							maxCycle = cycle(first);
 						}
 						
 						System.out.println(first + " " + second + " " + maxCycle);
