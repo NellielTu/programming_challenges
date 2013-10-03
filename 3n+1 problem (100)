@@ -8,7 +8,7 @@ public class Problem_100a {
 
 	/**
 	 * @param args
-	 * This is the 3n+1 problem -- 
+	 * This is the 3n+1 problem
 	 */
 
 	// test cycle
@@ -34,7 +34,7 @@ public class Problem_100a {
 	// get input and process	
 	void process(){
 		
-		int first= 0; int second = 0; int maxCycle = 0; 
+		int first= 0; int second = 0; int maxCycle = 0; int sInput = 0; int lInput = 0;
 		String line = "";
 		
 		StringTokenizer tokenizer = null;
@@ -49,8 +49,20 @@ public class Problem_100a {
 						first = Integer.parseInt(tokenizer.nextToken());
 						second = Integer.parseInt(tokenizer.nextToken());
 						
+						// first>=second or first<second
+						
+						if (first >= second){
+							sInput = second;
+							lInput = first;
+						}
+						else {
+							lInput = second;
+							sInput = first;
+						}
+						
+						
 						//get maxCycle for numbers between and including numbers provided
-						for (int i = first; i <= second; i++){
+						for (int i = sInput; i <= lInput; i++){
 							//here check for greatest cycle
 							if (maxCycle < cycle(i)){
 								maxCycle = cycle(i);
